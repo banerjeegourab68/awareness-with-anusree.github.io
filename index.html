@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Awareness with Anusree | Counseling Tips Hub</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --primary:#6c63ff;
+      --primary-dark:#554dff;
+      --bg:#f2f6ff;
+      --text:#222;
+      --card-bg:#fff;
+      --radius:12px;
+      --shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    /* Hero section */
+    header{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;
+      text-align:center;
+      padding:4rem 1rem 3rem;
+      position:relative;
+      overflow:hidden;
+    }
+    header::after{
+      content:'';
+      position:absolute;
+      bottom:-50px;left:0;right:0;
+      height:100px;
+      background:var(--bg);
+      border-radius:50% 50% 0 0;
+    }
+    header h1{font-size:2.4rem;font-weight:600;margin-bottom:.5rem}
+    header p{font-size:1.1rem;opacity:.9}
+
+    /* Tabs */
+    .tabs{
+      display:flex;
+      justify-content:center;
+      gap:.5rem;
+      margin-top: -40px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      background:#fff;
+      padding:.7rem 1.4rem;
+      border-radius:var(--radius);
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:all .3s;
+      font-weight:500;
+    }
+    .tab:hover{background:var(--primary);color:#fff}
+    .tab.active{
+      background:var(--primary);
+      color:#fff;
+      transform:translateY(-4px);
+    }
+
+    /* Content cards */
+    .content-wrapper{
+      max-width:1000px;
+      margin:3rem auto 4rem;
+      display:none;
+      animation:fade .5s ease-in;
+    }
+    .content-wrapper.active{display:block}
+    .card{
+      background:var(--card-bg);
+      padding:1.75rem;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .card h2{margin-bottom:1rem;font-size:1.6rem;color:var(--primary-dark)}
+    .tip{
+      padding-left:1.2rem;
+      margin-bottom:.9rem;
+      position:relative;
+    }
+    .tip::before{
+      content:"▹";
+      position:absolute;
+      left:0;
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    /* Fade animation */
+    @keyframes fade{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+
+    /* Footer */
+    footer{
+      margin-top:auto;
+      text-align:center;
+      padding:1.5rem 0;
+      font-size:.85rem;
+      color:#666;
+    }
+    footer a{color:var(--primary);text-decoration:none}
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Awareness with Anusree</h1>
+    <p>Your daily dose of practical counseling insights</p>
+    <div class="tabs">
+      <div class="tab active" data-target="child">Child Counseling</div>
+      <div class="tab" data-target="parent">Parent Counseling</div>
+      <div class="tab" data-target="adult">Adult Counseling</div>
+      <div class="tab" data-target="depression">Depression Support</div>
+    </div>
+  </header>
+
+  <!-- Child -->
+  <section id="child" class="content-wrapper active">
+    <div class="card">
+      <h2>Child Counseling Tips</h2>
+      <div class="tip">Use play therapy—let children express feelings through games and art.</div>
+      <div class="tip">Maintain simple, clear language and concrete examples.</div>
+      <div class="tip">Build trust by allowing them to lead conversations at their own pace.</div>
+      <div class="tip">Validate emotions: acknowledge “You seem sad,” rather than dismissing feelings.</div>
+      <div class="tip">Involve caregivers via periodic check-ins to reinforce progress at home.</div>
+    </div>
+  </section>
+
+  <!-- Parent -->
+  <section id="parent" class="content-wrapper">
+    <div class="card">
+      <h2>Parent Counseling Tips</h2>
+      <div class="tip">Practice active listening: mirror back what you hear before responding.</div>
+      <div class="tip">Encourage “I” statements to reduce blame: “I feel overwhelmed when…”</div>
+      <div class="tip">Set realistic, shared goals for family routines and discipline strategies.</div>
+      <div class="tip">Teach stress-management techniques: deep breathing and brief mindfulness breaks.</div>
+      <div class="tip">Offer empathy: normalize parental challenges and reinforce strengths.</div>
+    </div>
+  </section>
+
+  <!-- Adult -->
+  <section id="adult" class="content-wrapper">
+    <div class="card">
+      <h2>Adult Counseling Tips</h2>
+      <div class="tip">Frame open-ended questions: “What’s happening for you today?”</div>
+      <div class="tip">Encourage self-reflection through journaling prompts after each session.</div>
+      <div class="tip">Use cognitive restructuring: identify and challenge unhelpful thoughts.</div>
+      <div class="tip">Suggest activity scheduling to counteract avoidance and boost mood.</div>
+      <div class="tip">Foster social support by exploring trustworthy connections and boundaries.</div>
+    </div>
+  </section>
+
+  <!-- Depression -->
+  <section id="depression" class="content-wrapper">
+    <div class="card">
+      <h2>Depression Support Tips</h2>
+      <div class="tip">Introduce behavioral activation: encourage small, achievable daily tasks.</div>
+      <div class="tip">Monitor thought records: track automatic negative thoughts and counter-evidence.</div>
+      <div class="tip">Recommend sleep hygiene: consistent bedtime and reduced screen time before sleep.</div>
+      <div class="tip">Promote physical activity: even a 10-minute walk can boost endorphins.</div>
+      <div class="tip">Check for safety: ask directly about self-harm and have crisis resources ready.</div>
+    </div>
+  </section>
+
+  <footer>
+    Designed with ♥ for mental-health awareness — <a href="#">AwarenessWithAnusree.com</a>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.content-wrapper');
+
+    tabs.forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        // switch tab styling
+        tabs.forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // switch content
+        const id = tab.dataset.target;
+        sections.forEach(s=>{
+          s.classList.toggle('active', s.id===id);
+        });
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
