@@ -65,17 +65,17 @@
       transition:all .3s;
       font-weight:500;
     }
-    .tab:hover{background:var(--primary);color:#fff}
+    .tab:hover{background:var(--primary);color:#fff;transform:scale(1.05);}
     .tab.active{
       background:var(--primary);
       color:#fff;
-      transform:translateY(-4px);
+      transform:translateY(-4px) scale(1.05);
     }
 
     /* Content cards */
     .content-wrapper{
       max-width:1000px;
-      margin:3rem auto 4rem;
+      margin:4rem auto 4rem; /* shifted downward */
       display:none;
       animation:fade .5s ease-in;
     }
@@ -85,6 +85,7 @@
       padding:1.75rem;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
+      margin-bottom:1.5rem;
     }
     .card h2{margin-bottom:1rem;font-size:1.6rem;color:var(--primary-dark)}
     .tip{
@@ -100,18 +101,47 @@
       font-weight:600;
     }
 
+    /* Session booking */
+    .booking{
+      background:var(--card-bg);
+      padding:1.75rem;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+    .booking h2{color:var(--primary-dark);margin-bottom:1rem;}
+    .booking button{
+      margin:.5rem;
+      padding:.7rem 1.2rem;
+      border:none;
+      border-radius:var(--radius);
+      background:var(--primary);
+      color:#fff;
+      cursor:pointer;
+      transition:background .3s;
+    }
+    .booking button:hover{background:var(--primary-dark);}
+
+    /* Know more */
+    .know-more{
+      text-align:center;
+      margin-bottom:3rem;
+    }
+    .know-more a{
+      display:inline-block;
+      padding:.8rem 1.5rem;
+      background:#25D366;
+      color:#fff;
+      border-radius:var(--radius);
+      text-decoration:none;
+      font-weight:500;
+      box-shadow:var(--shadow);
+      transition:transform .3s;
+    }
+    .know-more a:hover{transform:scale(1.05);}
+
     /* Fade animation */
     @keyframes fade{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-
-    /* Footer */
-    footer{
-      margin-top:auto;
-      text-align:center;
-      padding:1.5rem 0;
-      font-size:.85rem;
-      color:#666;
-    }
-    footer a{color:var(--primary);text-decoration:none}
   </style>
 </head>
 
@@ -124,6 +154,7 @@
       <div class="tab" data-target="parent">Parent Counseling</div>
       <div class="tab" data-target="adult">Adult Counseling</div>
       <div class="tab" data-target="depression">Depression Support</div>
+      <div class="tab" data-target="booking">Book a Session</div>
     </div>
   </header>
 
@@ -175,9 +206,19 @@
     </div>
   </section>
 
-  <footer>
-    Designed with ♥ for mental-health awareness — <a href="#">AwarenessWithAnusree.com</a>
-  </footer>
+  <!-- Booking -->
+  <section id="booking" class="content-wrapper">
+    <div class="booking">
+      <h2>Book a Counseling Session</h2>
+      <button id="onlineBtn">Online Mode</button>
+      <button id="offlineBtn">Offline Mode</button>
+    </div>
+  </section>
+
+  <!-- Know more -->
+  <div class="know-more">
+    <a href="https://wa.me/917003752741" target="_blank">Know More via WhatsApp</a>
+  </div>
 
   <script>
     const tabs = document.querySelectorAll('.tab');
@@ -185,17 +226,22 @@
 
     tabs.forEach(tab=>{
       tab.addEventListener('click',()=>{
-        // switch tab styling
         tabs.forEach(t=>t.classList.remove('active'));
         tab.classList.add('active');
-
-        // switch content
         const id = tab.dataset.target;
         sections.forEach(s=>{
           s.classList.toggle('active', s.id===id);
         });
         window.scrollTo({top:0,behavior:'smooth'});
       });
+    });
+
+    // Booking buttons
+    document.getElementById('onlineBtn').addEventListener('click', ()=>{
+      window.location.href = 'https://yourdomain.com/booking/online'; 
+    });
+    document.getElementById('offlineBtn').addEventListener('click', ()=>{
+      window.location.href = 'https://yourdomain.com/booking/offline';
     });
   </script>
 </body>
